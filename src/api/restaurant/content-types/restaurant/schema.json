@@ -84,6 +84,11 @@
         "kw": ""
       },
       "customField": "plugin::slug.slug"
+    },
+    "menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
     }
   }
 }
