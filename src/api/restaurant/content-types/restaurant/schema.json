@@ -89,6 +89,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::menu.menu"
+    },
+    "map": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "customField": "plugin::google-maps.location-picker"
     }
   }
 }
