@@ -941,6 +941,41 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiReservationReservation extends Schema.CollectionType {
+  collectionName: 'reservations';
+  info: {
+    singularName: 'reservation';
+    pluralName: 'reservations';
+    displayName: 'Reservation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    restaurant: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'api::restaurant.restaurant'
+    >;
+    date: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRestaurantRestaurant extends Schema.CollectionType {
   collectionName: 'restaurants';
   info: {
@@ -1065,6 +1100,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::menu.menu': ApiMenuMenu;
       'api::product.product': ApiProductProduct;
+      'api::reservation.reservation': ApiReservationReservation;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
     }
   }
