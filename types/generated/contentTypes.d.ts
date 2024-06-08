@@ -873,6 +873,7 @@ export interface ApiMenuMenu extends Schema.CollectionType {
     singularName: 'menu';
     pluralName: 'menus';
     displayName: 'Menu';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -884,6 +885,12 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    type: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1049,6 +1056,18 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
     >;
     map: Attribute.JSON &
       Attribute.CustomField<'plugin::google-maps.location-picker'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    telephone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    menuUrl: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
