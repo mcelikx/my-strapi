@@ -954,6 +954,7 @@ export interface ApiReservationReservation extends Schema.CollectionType {
     singularName: 'reservation';
     pluralName: 'reservations';
     displayName: 'Reservation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -965,6 +966,9 @@ export interface ApiReservationReservation extends Schema.CollectionType {
       'api::restaurant.restaurant'
     >;
     date: Attribute.DateTime;
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    guestCount: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
